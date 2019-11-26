@@ -1,0 +1,29 @@
+.text{
+    width: 1200px;
+    height: 150px;
+    display:block;
+    position: absolute;
+    bottom: 40px;
+    left: 168px;
+    background-color: black;
+    border: 1px solid white;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+
+#introKnop{
+    position: absolute;
+    width: 30px;
+    bottom: 100px;
+
+}
+
+#textIntro{
+    color: white;
+}
+
+#Next{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
