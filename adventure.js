@@ -2,6 +2,15 @@
 var script = document.createElement('script'); 
 script.src =  "menu's.js"; 
 document.body.appendChild(script)
+//googlefonts
+var font = document.createElement('link'); 
+font.href = "https://fonts.googleapis.com/css?family=Tomorrow&display=swap"
+font.rel = "stylesheet";
+document.head.appendChild(font)
+var font1 = document.createElement('link'); 
+font1.href = "https://fonts.googleapis.com/css?family=Caveat&display=swap"
+font1.rel = "stylesheet";
+document.head.appendChild(font1)
 background(1);
 //username
 var username; 
@@ -87,8 +96,7 @@ function start(){
     textAmount = 4;
     stageNumber = 1;
 }
-function menu(check){
-    back.style.display = "none"
+function menuAanmaken(){
     //knop naar inventory
     menuSelection = document.createElement("button");
     menuSelection.innerHTML = "inventory";
@@ -99,11 +107,15 @@ function menu(check){
 
     //knop naar de recipe book
     menuSelection1 = document.createElement("button");
-    menuSelection1.innerHTML = "recipe";
+    menuSelection1.innerHTML = "Crafting";
     menuSelection1.id = "recipe";
     menuSelection1.className = "bar"
-    menuSelection1.onclick = function() {book()};
+    menuSelection1.onclick = function() {book(),reset1()};
     document.body.appendChild(menuSelection1);
+}
+function menu(check){
+    menuSelection.style.display = "inline-block";
+    menuSelection1.style.display = "inline-block";
 
     if(check == false){
         menuSelection.style.display = "none"
@@ -223,7 +235,7 @@ function stage3(){
 function main(){
     background(4);
     textPaper.style.display = "none";
-    menu(true);
+    menuAanmaken();
 }
 //het level als je water hebt gekozen.
 function getWater(){
