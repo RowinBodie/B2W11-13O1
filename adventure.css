@@ -58,3 +58,27 @@
     left: 350px;
     top: 5px;
 }
+
+#recipe{
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    right: 5px;
+    bottom: 5px;
+}
+
+#inventory{
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    right: 5px;
+    bottom: 155px;
+}
+
+.bar{
+    background-color: rgb(145, 191, 229);
+    border-color: black;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    color: black;
+}

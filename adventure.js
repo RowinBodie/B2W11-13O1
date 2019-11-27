@@ -1,3 +1,7 @@
+//andere js
+var script = document.createElement('script'); 
+script.src =  "menu's.js"; 
+document.body.appendChild(script)
 background(1);
 //username
 var username; 
@@ -7,6 +11,7 @@ var textAmount = 0;
 var stageNumber = 0;
 var dayCounter = 0;
 var waterKan = true;
+var etenKan = true;
 //text
 var textPaper;
 var text;
@@ -17,6 +22,10 @@ var text4;
 var next;
 var water;
 var eten;
+var mines;
+var logCamp;
+var menuSelection;
+var menuSelection1;
 
 var introKnop = document.createElement("button");
 document.body.appendChild(introKnop);
@@ -24,10 +33,10 @@ introKnop.id = "introKnop"
 introKnop.onclick = function() {intro()};
 introKnop.innerHTML = "The Begin of The End";
 
-var days = document.createElement("h3");
-document.body.appendChild(days);
-days.id = "days";
-days.innerHTML = "day:"+DayCounter;
+//var days = document.createElement("h3");
+//document.body.appendChild(days);
+//days.id = "days";
+//days.innerHTML = "day:"+DayCounter;
 
 function intro(){
     background(2);
@@ -78,9 +87,36 @@ function start(){
     textAmount = 4;
     stageNumber = 1;
 }
+function menu(check){
+    back.style.display = "none"
+    //knop naar inventory
+    menuSelection = document.createElement("button");
+    menuSelection.innerHTML = "inventory";
+    menuSelection.id = "inventory";
+    menuSelection.className = "bar"
+    menuSelection.onclick = function() {inv()};
+    document.body.appendChild(menuSelection);
+
+    //knop naar de recipe book
+    menuSelection1 = document.createElement("button");
+    menuSelection1.innerHTML = "recipe";
+    menuSelection1.id = "recipe";
+    menuSelection1.className = "bar"
+    menuSelection1.onclick = function() {book()};
+    document.body.appendChild(menuSelection1);
+
+    if(check == false){
+        menuSelection.style.display = "none"
+        menuSelection1.style.display = "none"
+    }
+}
 //tekst loop.
 function nextOne(parameter,parameter2){
     textPaper.style.display = "inline-block";
+    text.id = "none"
+    text2.id = "none1"
+    text3.id = "none2"
+    text4.id = "none3"
     nextPressed += 1;
     //text content.
     if(nextPressed == 1 && nextPressed < parameter){
@@ -109,14 +145,22 @@ function nextOne(parameter,parameter2){
             loadStage(stage2);
         }
         else if(parameter2 == 3){
-            loadStage(stage3);
+            notLoadStage(stage3);
         }
     }
 }
 //loadscreen / stage loader.
 function loadStage(stage){
-    setTimeout(function() {background(0)}, 500);
-    setTimeout(stage, 1500);
+    setTimeout(function() {background(0)}, 1);
+    setTimeout(stage, 1);
+}
+//stage loader no loadscreen
+function notLoadStage(stage){
+    setTimeout(stage, 1);
+}
+function dayloader(stage){
+    setTimeout(function() {background(5)}, 1);
+    setTimeout(stage, 1);
 }
 //overlevings plek zoeken.
 function stage1(){
@@ -144,26 +188,80 @@ function stage2(){
 }
 //eten of water halen.
 function stage3(){
+    nextPressed = 0
     background(4);
     textPaper.style.display = "inline-block";
     text.style.display = "inline";
     text.id = "selection"
     next.style.display = "none";
     text.innerHTML = "Wat wil je als eerste gaan halen?";
-    eten = document.createElement("button");
-    eten.innerHTML = "Eten";
-    eten.className = "w&e";
-    eten.id = "eten";
-    document.getElementById("introText").appendChild(eten);
+    textAmount = 1
 
+    if(etenKan == true){
+        eten = document.createElement("button");
+        eten.innerHTML = "Eten";
+        eten.className = "w&e";
+        eten.id = "eten";
+        document.getElementById("introText").appendChild(eten);
+        eten.onclick = function() {getFood()};
+    }
+    
     if(waterKan == true){
         water = document.createElement("button");
         water.innerHTML = "Water";
         water.className = "w&e";
         water.id = "water";
         document.getElementById("introText").appendChild(water); 
+        water.onclick = function() {getWater()};
     }
     
+    if(waterKan == false && etenKan == false){
+        dayloader(main);
+    }
+}
+//de opbouw van je dorp.
+function main(){
+    background(4);
+    textPaper.style.display = "none";
+    menu(true);
+}
+//het level als je water hebt gekozen.
+function getWater(){
+    textPaper.style.display = "inline-block";
+    text.style.display = "inline";
+    text.id = "none";
+    next.style.display = "inline";
+    water.style.display = "none";
+    eten.style.display = "none";
+    text.innerHTML = "(Je loopt een cirkel om je kamp heen en zit dat je dicht bij een rivier zit.)"+"<br>"+"(je merkt al snel dat het donker wordt dus je drinkt gedachteloos het water uit de rivier en loopt weer terug.)";
+    if(etenKan != false){
+        text2.innerHTML = "(Je kijkt door de bomen en ziet dat je nog tijd hebt om eten tehalen.)";
+    }
+    else if(etenKan == false){
+        text2.innerHTML = "(Je kijkt in de bomen en ziet dat je perfect in een boom kan slapen dus je besluit om dat tegaan doen.)";
+    }
+    waterKan = false;
+    textAmount = 2
+    stageNumber = 3
+}
+//het level waar je eten hebt gekozen.
+function getFood(){
+    textPaper.style.display = "inline-block";
+    text.style.display = "inline";
+    text.id = "none"
+    next.style.display = "inline";
+    water.style.display = "none";
+    eten.style.display = "none";
+    if(waterKan != false){
+        text.innerHTML = "(Je loopt naar een hoge boom die je al gespot had vanuit je toekomstige kamp.)"+"<br>"+"(Je zit dat het steeds donkerder wordt maar mischien kan ik nog water halen.)"+"<br>"+"(je loopt snel terug naar het kamp.)";
+    }
+    else if(waterKan == false){
+        text.innerHTML = "(Je loopt naar een hoge boom die je al gespot had vanuit je toekomstige kamp.)"+"<br>"+"(Je ziet dat het al donker wordt dus je besluit in een boom teklimmen en tegaan slapen in de boom.)"+"<br>"+"(je loopt snel terug naar het kamp.)";
+    }
+    
+    etenKan = false;
+    textAmount = 1
+    stageNumber = 3
 }
 //background selector.
 function background(optionNumber){
@@ -173,7 +271,8 @@ function background(optionNumber){
         "url('images/backlevel0.png')",
         "url('images/backlevel1.png')",
         "url('images/backlevel2.png')",
-        "url('images/backlevelcamp.png')"
+        "url('images/backlevelcamp.png')",
+        "url('images/daycount.png')"
     ];
     document.body.style.background = options[optionNumber];
 }
