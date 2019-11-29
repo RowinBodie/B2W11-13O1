@@ -23,6 +23,7 @@
     filter: alpha(opacity=60);
     color: white;
     font-family: 'Tomorrow', sans-serif;
+    cursor: grab;
 }
 
 .textContent{
@@ -38,6 +39,7 @@
     bottom: 5px;
     right: 5px;
     font-family: 'Tomorrow', sans-serif;
+    cursor: grab;
 }
 
 #water{
@@ -46,6 +48,7 @@
     bottom: 65px;
     left: 80px;
     font-family: 'Tomorrow', sans-serif;
+    cursor: grab;
 }
 
 #eten{
@@ -54,6 +57,7 @@
     bottom: 65px;
     right: 80px;
     font-family: 'Tomorrow', sans-serif;
+    cursor: grab;
 }
 
 #selection{
@@ -71,7 +75,8 @@
     height: 150px;
     right: 5px;
     bottom: 5px;
-    font-family: 'Tomorrow', sans-serif;
+    font-family: 'Tomorrow', sans-serif;    
+    cursor: grab;
 }
 
 #inventory{
@@ -81,7 +86,7 @@
     right: 5px;
     bottom: 155px;
     font-family: 'Tomorrow', sans-serif;
-    font-family: 'Tomorrow', sans-serif;
+    cursor: grab;
 }
 
 .bar{
@@ -91,7 +96,7 @@
     filter: alpha(opacity=60);
     color: black;
 }
-#recipeImg{
+.img{
     position: absolute;
     left: 0;
     top: 0;
@@ -100,6 +105,7 @@
     background-image: url("images/daycount.png");
     opacity: 0.6;
     filter: alpha(opacity=60);
+    z-index: -1;
 }
 #book{
     position: absolute;
@@ -120,18 +126,68 @@
     filter: alpha(opacity=60);
     font-family: 'Caveat', cursive;
     font-size: 20px;
+    cursor: grab;
 }
 
 #structures{
+    top: 55px;
+    left: 90px;
+}
+#tools{
+    top: 55px;
+    left: 200px;
+}
+#armor{
+    top: 55px;
+    left: 260px;
+}
+#crafting{
+    top: 55px;
+    left: 330px;
+}
+.recipes{
     font-family: 'Caveat', cursive;
     font-size: 25px;
     font-weight: bold;
     text-decoration: none;
-    background-attachment: none;
-    border-color: none;
     position: absolute;
-    top: 55px;
-    left: 90px;
     margin: 0;
     cursor: grab;
+}
+
+.layout{
+    display: grid;
+    grid-template-columns: 400px 595px;
+    grid-template-rows: 100px 495px;
+    grid-gap: 5px;
+    background-color: rgba(163, 141, 141, 0.76);
+    opacity: 0.8;
+    filter: alpha(opacity=60);
+}
+#container{
+    height: 600px;
+    width: 1000px;
+    background-color: rgba(163, 141, 141, 0.76);
+    opacity: 0.8;
+    filter: alpha(opacity=60);
+}
+
+#selectionKind{
+    background-color: indigo;
+}
+#selectionDay{
+    background-color: indigo;
+}
+#selectionItems{
+    background-color: indigo;
+}
+#containerBorder{
+    height: 600px;
+    width: 1000px;
+    border: solid 5px rgba(163, 141, 141, 0.8);
+    position: absolute;
+    left: 268px;
+    bottom: 87px;
+    opacity: 0.8;
+    filter: alpha(opacity=60);
 }

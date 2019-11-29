@@ -2,6 +2,9 @@
 var script = document.createElement('script'); 
 script.src =  "menu's.js"; 
 document.body.appendChild(script)
+var script1 = document.createElement('script'); 
+script1.src =  "resources.js"; 
+document.body.appendChild(script1)
 //googlefonts
 var font = document.createElement('link'); 
 font.href = "https://fonts.googleapis.com/css?family=Tomorrow&display=swap"
@@ -110,7 +113,7 @@ function menuAanmaken(){
     menuSelection1.innerHTML = "Crafting";
     menuSelection1.id = "recipe";
     menuSelection1.className = "bar"
-    menuSelection1.onclick = function() {book(),reset1()};
+    menuSelection1.onclick = function() {book()};
     document.body.appendChild(menuSelection1);
 }
 function menu(check){
