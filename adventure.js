@@ -9,11 +9,11 @@ document.body.appendChild(script1)
 var font = document.createElement('link'); 
 font.href = "https://fonts.googleapis.com/css?family=Tomorrow&display=swap"
 font.rel = "stylesheet";
-document.head.appendChild(font)
+document.head.appendChild(font);
 var font1 = document.createElement('link'); 
 font1.href = "https://fonts.googleapis.com/css?family=Caveat&display=swap"
 font1.rel = "stylesheet";
-document.head.appendChild(font1)
+document.head.appendChild(font1);
 background(1);
 //username
 var username; 
@@ -99,30 +99,21 @@ function start(){
     textAmount = 4;
     stageNumber = 1;
 }
-function menuAanmaken(){
-    //knop naar inventory
-    menuSelection = document.createElement("button");
-    menuSelection.innerHTML = "inventory";
-    menuSelection.id = "inventory";
-    menuSelection.className = "bar"
-    menuSelection.onclick = function() {inv()};
-    document.body.appendChild(menuSelection);
 
-    //knop naar de recipe book
-    menuSelection1 = document.createElement("button");
-    menuSelection1.innerHTML = "Crafting";
-    menuSelection1.id = "recipe";
-    menuSelection1.className = "bar"
-    menuSelection1.onclick = function() {book()};
-    document.body.appendChild(menuSelection1);
-}
 function menu(check){
     menuSelection.style.display = "inline-block";
     menuSelection1.style.display = "inline-block";
-
+    getWood.style.display = "inline-block";
+    getStone.style.display = "inline-block";
+    getWater.style.display = "inline-block";
+    hunt.style.display = "inline-block";
     if(check == false){
         menuSelection.style.display = "none"
         menuSelection1.style.display = "none"
+        getWood.style.display = "none";
+        getStone.style.display = "none";
+        getWater.style.display = "none";
+        hunt.style.display = "none";
     }
 }
 //tekst loop.
@@ -218,7 +209,7 @@ function stage3(){
         eten.className = "w&e";
         eten.id = "eten";
         document.getElementById("introText").appendChild(eten);
-        eten.onclick = function() {getFood()};
+        eten.onclick = function() {pickFood()};
     }
     
     if(waterKan == true){
@@ -227,7 +218,7 @@ function stage3(){
         water.className = "w&e";
         water.id = "water";
         document.getElementById("introText").appendChild(water); 
-        water.onclick = function() {getWater()};
+        water.onclick = function() {pickWater()};
     }
     
     if(waterKan == false && etenKan == false){
@@ -238,10 +229,16 @@ function stage3(){
 function main(){
     background(4);
     textPaper.style.display = "none";
+    text.style.display = "none";
+    text2.style.display = "none";
+    text3.style.display = "none";
+    text4.style.display = "none";
+    next.style.display = "none";
     menuAanmaken();
+    recourseMenu();
 }
 //het level als je water hebt gekozen.
-function getWater(){
+function pickWater(){
     textPaper.style.display = "inline-block";
     text.style.display = "inline";
     text.id = "none";
@@ -260,7 +257,7 @@ function getWater(){
     stageNumber = 3
 }
 //het level waar je eten hebt gekozen.
-function getFood(){
+function pickFood(){
     textPaper.style.display = "inline-block";
     text.style.display = "inline";
     text.id = "none"

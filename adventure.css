@@ -89,6 +89,92 @@
     cursor: grab;
 }
 
+.gather{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    font-family: 'Tomorrow', sans-serif;
+    cursor: grab;
+    background-color: rgb(145, 191, 229);
+    border-color: black;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    color: black;
+}
+
+#getWood{
+    left: 5px;
+    bottom: 5px;
+}
+#getStone{
+    left: 5px;
+    bottom: 110px;
+}
+#getWater{
+    left: 5px;
+    bottom: 215px;
+}
+#hunt{
+    left: 5px;
+    bottom: 320px;
+}
+#recMenu{
+    width: 200px;
+    height: 40px;
+    right: 5px;
+    top: 5px;
+    position: absolute;
+    background-color: rgb(145, 191, 229);
+    border: black solid 2px;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+.holds{
+    margin-left: 10px;
+    display: inline-block;
+}
+.icon{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    padding-top: 10px;
+}
+.textRec{
+    display: inline-block;
+    margin: 0;
+    padding-left: 5px;
+    padding-top: -5px;
+}
+#dayHolder{
+    width: 50px;
+    height: 20px;
+    left: 5px;
+    top: 5px;
+    position: absolute;
+    background-color: rgb(145, 191, 229);
+    border: black solid 2px;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+}
+#nextDay{
+    color: white;
+    margin: 0 auto;
+    padding-top: 500px;
+}
+#sleep{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    font-family: 'Tomorrow', sans-serif;
+    cursor: grab;
+    background-color: rgb(145, 191, 229);
+    border-color: black;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    color: black;
+    left: 5px;
+    bottom: 5px;
+}
 .bar{
     background-color: rgb(145, 191, 229);
     border-color: black;
@@ -122,6 +208,19 @@
     bottom: 45px;
     background-color: rgb(221, 193, 103);
     border-color: rgb(194, 170, 34);
+    opacity: 0.8;
+    filter: alpha(opacity=60);
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    cursor: grab;
+}
+
+#back1{
+    position: absolute;
+    right: 270px;
+    bottom: 98px;
+    background-color: rgb(68, 68, 66);
+    border-color: rgb(37, 37, 36);
     opacity: 0.8;
     filter: alpha(opacity=60);
     font-family: 'Caveat', cursive;
@@ -172,18 +271,13 @@
     filter: alpha(opacity=60);
 }
 
-#selectionKind{
-    background-color: indigo;
+#selectionKind,#selectionDay,#selectionItems{
+    background-color: rgb(88, 86, 86);
 }
-#selectionDay{
-    background-color: indigo;
-}
-#selectionItems{
-    background-color: indigo;
-}
+
 #containerBorder{
     height: 600px;
-    width: 1000px;
+    width: 999.5px;
     border: solid 5px rgba(163, 141, 141, 0.8);
     position: absolute;
     left: 268px;
